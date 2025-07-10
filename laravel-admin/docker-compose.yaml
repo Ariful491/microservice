@@ -1,0 +1,56 @@
+version: "3.8"
+
+networks:
+  app:
+    name: app
+
+
+services:
+
+  backend:
+    container_name: admin_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_DATABASE: admin
+      DB_USERNAME: root
+      DB_PASSWORD: root
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    networks:
+      - app
+
+  db:
+    image: mysql:latest
+    container_name: admin_db
+    environment:
+      MYSQL_DATABASE: admin
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql
+    ports:
+      - "33066:3306"
+    networks:
+      - app
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: admin_phpmyadmin
+    restart: always
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: admin_db
+      MYSQL_ROOT_PASSWORD: secret
+    depends_on:
+      - db
+    networks:
+      - app
+
