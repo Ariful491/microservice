@@ -1,11 +1,14 @@
 import React from "react";
+import Wrapper from "./Wrapper";
 
 const User = () => {
     return (
         <>
-            <p>
-                Users Works!
-            </p>
+            <Wrapper>
+                <p>
+                    Users Works!
+                </p>
+            </Wrapper>
         </>
     )
 }

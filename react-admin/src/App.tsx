@@ -1,31 +1,25 @@
 import React from 'react';
-import './App.css';
-import Header from "./secure/components/Header";
-import SideBar from "./secure/components/SideBar";
 import Dashboard from "./secure/Dashboard";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import User from "./secure/User";
+import Login from "./public/Login";
+import Register from "./public/Register";
 
 function App() {
 
-
     return (
         <>
-            <Header/>
-            <div className="container-fluid">
-                <div className="row">
-                    <SideBar/>
-
-                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                        <BrowserRouter>
-                            <Routes>
-                                <Route path={'/'} Component={Dashboard}/>
-                                <Route path={'/user'} Component={User}/>
-                            </Routes>
-                        </BrowserRouter>
-                    </main>
-                </div>
+            <div>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={'/'} Component={Dashboard}/>
+                        <Route path={'/user'} Component={User}/>
+                        <Route path={'/login'} Component={Login}/>
+                        <Route path={'/register'} Component={Register}/>
+                    </Routes>
+                </BrowserRouter>
             </div>
+
         </>
     );
 }

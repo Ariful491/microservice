@@ -16,8 +16,9 @@ const SideBar = () => {
                     <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul className="nav flex-column">
                             <li className="nav-item"><a
+                                href={'/'}
                                 className="nav-link d-flex align-items-center gap-2 active"
-                                aria-current="page" href="#">
+                                aria-current="page"  >
                                 <svg className="bi" aria-hidden="true">
                                     <use href="#house-fill"></use>
                                 </svg>
@@ -25,11 +26,11 @@ const SideBar = () => {
                             </a></li>
                             <li className="nav-item">
                                 <a className="nav-link d-flex align-items-center gap-2"
-                                   href="#">
+                                   href="user">
                                     <svg className="bi" aria-hidden="true">
                                         <use href="#file-earmark"></use>
                                     </svg>
-                                    Orders
+                                    Users
                                 </a></li>
 
                         </ul>
